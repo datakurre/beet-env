@@ -20,6 +20,6 @@ vscode-with-extensions.override {
       '';
     }))
     vscode-marketplace.mcbeet.vscode-beet
-    vscode-marketplace.spgoding.datapack-language-server
+    vscode-marketplace.minecraftcommands.syntax-mcfunction
   ] ++ lib.optionals enableVim [ vscode-extensions.vscodevim.vim ];
 }
