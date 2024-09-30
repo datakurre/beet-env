@@ -1,0 +1,4 @@
+[flake8]
+exclude = camunda.py
+max-line-length = 120
+
