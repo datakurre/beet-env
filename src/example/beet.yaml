@@ -1,0 +1,8 @@
+pipeline:
+  - basic1
+data_pack:
+  zipped: true
+resource_pack:
+  zipped: true
+minecraft: 1.21
+output: ../../build
