@@ -1,0 +1,10 @@
+pipeline:
+  - dice
+  - blocks
+data_pack:
+  load: [blocks]
+  zipped: true
+resource_pack:
+  zipped: true
+minecraft: 1.21
+output: /home/atsoukka/.local/share/PrismLauncher/instances/1.21.1/.minecraft/saves/Survival/datapacks

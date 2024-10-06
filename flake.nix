@@ -67,11 +67,9 @@
         };
 
         packages = {
-          beet-env = pkgs.callPackage ./pkgs/beet-env {
-            python3 = builtins.getAttr python pkgs;
-          };
-          code = pkgs.callPackage ./pkgs/code { };
-          code-vim = pkgs.callPackage ./pkgs/code { enableVim = true; };
+          beet-env = pkgs.callPackage ./.nix/beet-env { python3 = builtins.getAttr python pkgs; };
+          code = pkgs.callPackage ./.nix/code { };
+          code-vim = pkgs.callPackage ./.nix/code { enableVim = true; };
         };
 
         devShells.default = pkgs.mkShell {
@@ -91,10 +89,10 @@
         };
 
         devShells.poetry = pkgs.mkShell {
-          buildInputs = [
-            (pkgs.poetry.override { python3 = builtins.getAttr python pkgs; })
-          ];
+          buildInputs = [ (pkgs.poetry.override { python3 = builtins.getAttr python pkgs; }) ];
         };
+
+        formatter = pkgs.nixfmt-rfc-style;
 
       }
     );

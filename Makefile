@@ -9,3 +9,5 @@ vim-shell:
 .PHONY: format
 format:
 	nix fmt flake.nix
+	black .
+	isort .
