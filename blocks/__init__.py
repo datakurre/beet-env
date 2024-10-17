@@ -4,37 +4,18 @@ from beet import Context
 from beet import Function
 from beet import LootTable
 from beet import Model
+from blocks.utils import get_blocks
 from pathlib import Path
-from pydantic import BaseModel
-from typing import Dict
-from yaml import safe_load
-from functools import lru_cache
 import json
-import re
 
 
 package = Path(__file__).parent / "data" / "blocks"
 
 
-class Block(BaseModel):
-    id: int
-    name: str
-    slot: str
-    faces: Dict[str, str]
-
-
-@lru_cache()
-def snake_case(name: str) -> str:
-    return re.sub(r"[_]+", "_", re.sub(r"[^a-zA-Z]", "_", name)).strip("_").lower()
-
-
 def beet_default(ctx: Context):
-    blocks = [
-        Block(**item) for item in safe_load((ctx.directory / "blocks.yaml").read_text())
-    ]
-    for config in blocks:
+    for config in get_blocks(ctx):
         block, state = config.slot.strip("]").split("[")
-        ctx.assets[f"minecraft:block/{snake_case(config.name)}"] = Model(
+        ctx.assets[f"minecraft:block/{config.key}"] = Model(
             {
                 "parent": "block/cube_all",
                 "textures": {
@@ -62,7 +43,7 @@ def beet_default(ctx: Context):
         ctx.assets[f"minecraft:{block}"] = Blockstate(
             {
                 "variants": {
-                    state: [{"model": f"minecraft:block/{snake_case(config.name)}"}],
+                    state: [{"model": f"minecraft:block/{config.key}"}],
                 }
             }
         )
@@ -122,9 +103,9 @@ def beet_default(ctx: Context):
             "overrides": [
                 {
                     "predicate": {"custom_model_data": config.id},
-                    "model": f"block/{snake_case(config.name)}",
+                    "model": f"block/{config.key}",
                 }
-                for config in blocks
+                for config in get_blocks(ctx)
             ],
         }
     )
