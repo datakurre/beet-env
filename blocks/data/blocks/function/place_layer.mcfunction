@@ -1,1 +1,0 @@
-execute if score @s heldItem matches 90101 run fill ~-7 ~ ~-7 ~7 ~ ~7 oak_slab[type=double,waterlogged=true] replace barrier

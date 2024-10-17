@@ -7,7 +7,7 @@ from PIL import ImageDraw
 # Function to draw a dice side with a specified number of dots (pips)
 def draw_dice_side(pips, image_size=32, dot_size=6):
     # Create a new image with a white background
-    img = Image.new("RGB", (image_size, image_size), color="white")
+    img = Image.new("RGB", (image_size, image_size), color="black")
     draw = ImageDraw.Draw(img)
 
     # Predefined positions for the dots on the dice
@@ -55,7 +55,7 @@ def draw_dice_side(pips, image_size=32, dot_size=6):
                 x + dot_size // 2,
                 y + dot_size // 2,
             ),
-            fill="black",
+            fill="white",
         )
 
     return img
@@ -73,9 +73,9 @@ def beet_default(ctx: Context):
     }
 
     # Example: Assigning each dice side to a different block texture in Minecraft
-    ctx.assets["minecraft:block/dice/1"] = Texture(dice_sides[1])
-    ctx.assets["minecraft:block/dice/2"] = Texture(dice_sides[2])
-    ctx.assets["minecraft:block/dice/3"] = Texture(dice_sides[3])
-    ctx.assets["minecraft:block/dice/4"] = Texture(dice_sides[4])
-    ctx.assets["minecraft:block/dice/5"] = Texture(dice_sides[5])
-    ctx.assets["minecraft:block/dice/6"] = Texture(dice_sides[6])
+    ctx.assets["minecraft:block/dice_black/1"] = Texture(dice_sides[1])
+    ctx.assets["minecraft:block/dice_black/2"] = Texture(dice_sides[2])
+    ctx.assets["minecraft:block/dice_black/3"] = Texture(dice_sides[3])
+    ctx.assets["minecraft:block/dice_black/4"] = Texture(dice_sides[4])
+    ctx.assets["minecraft:block/dice_black/5"] = Texture(dice_sides[5])
+    ctx.assets["minecraft:block/dice_black/6"] = Texture(dice_sides[6])

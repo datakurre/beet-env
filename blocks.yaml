@@ -1,0 +1,20 @@
+- id: 90101
+  name: Dice
+  slot: oak_slab[type=double,waterlogged=true]
+  faces:
+    up: minecraft:block/dice_white/6
+    down: minecraft:block/dice_white/1
+    north: minecraft:block/dice_white/3
+    east: minecraft:block/dice_white/2
+    south: minecraft:block/dice_white/4
+    west: minecraft:block/dice_white/5
+- id: 90102
+  name: Dice (Black)
+  slot: stone_slab[type=double,waterlogged=true]
+  faces:
+    up: minecraft:block/dice_black/6
+    down: minecraft:block/dice_black/1
+    north: minecraft:block/dice_black/3
+    east: minecraft:block/dice_black/2
+    south: minecraft:block/dice_black/4
+    west: minecraft:block/dice_black/5

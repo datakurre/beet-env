@@ -12,6 +12,9 @@ mecha = "^0.95.2"
 lectern = "^0.34.0"
 bolt = "^0.49.1"
 pillow = "^10.4.0"
+pyyaml = "^6.0.2"
+bolt-expressions = "^0.17.0"
+pydantic = "^2.9.2"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.11.2"

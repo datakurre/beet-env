@@ -1,10 +1,14 @@
+require:
+  - bolt
 pipeline:
-  - dice
+  - dice_white
+  - dice_black
   - blocks
+  - mecha
 data_pack:
   load: [blocks]
-  zipped: true
+  zipped: false
 resource_pack:
-  zipped: true
+  zipped: false
 minecraft: 1.21
-output: /home/atsoukka/.local/share/PrismLauncher/instances/1.21.1/.minecraft/saves/Survival/datapacks
+output: ./build
